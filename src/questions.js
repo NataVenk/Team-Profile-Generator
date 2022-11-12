@@ -12,12 +12,12 @@ const managerQ = [
     {
         type: 'input',
         name: 'email',
-        message: 'Add emailr',
+        message: 'Add email',
     },
     {
         type: 'input',
         name: 'office',
-        message: 'Add officer',
+        message: 'Add office',
     }
 ]
 
@@ -35,7 +35,7 @@ const engineerQ = [
     {
         type: 'input',
         name: 'email',
-        message: 'Add emailr',
+        message: 'Add email',
     },
     {
         type: 'input',
