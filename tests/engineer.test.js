@@ -8,9 +8,12 @@ describe("Engineer", () => {
         });
 
         it("should have engineer constructor that will add the property GitHub user name", () => {
-            const obj = new Engineer("github");
+            const obj = new Engineer("sally", "3", "sal@sal.com", "sal.github");
 
-            expect("github" in obj).toEqual(true);
+            expect(obj.name).toEqual("sally");
+            expect(obj.id).toEqual("3");
+            expect(obj.email).toEqual("sal@sal.com");
+            expect(obj.github).toEqual("sal.github");
 
         });
     })

@@ -6,13 +6,19 @@ describe("Manager", () => {
             const obj = new Manager();
             expect (obj instanceof Manager).toEqual(true);
         });
+        it("should have office constructor that will add office number", () => {
+          
+            const obj = new Manager("Tim", "07", "tim@tim.com", "123");
 
-        it("should have manager constructor that will add the property office number", () => {
-            const obj = new Manager("office");
+            expect(obj.name).toEqual("Tim");
+            expect(obj.id).toEqual("07");
+            expect(obj.email).toEqual("tim@tim.com");
+            expect(obj.office).toEqual("123");
+      
+            
+      
+          });
 
-            expect("office" in obj).toEqual(true);
-
-        });
     })
 })  
 
