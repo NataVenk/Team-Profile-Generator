@@ -1,5 +1,5 @@
 const {prompt} = require('inquirer');
-// const {endProgram} = require('process');
+
 
 const fs = require('fs');
 
@@ -10,7 +10,7 @@ const Intern = require("./lib/Intern")
 
 const{managerQ, engineerQ, internQ} = require("./src/questions")
 
-const generateHtml = require("./src/generateHtml")
+// const generateHtml = require("./src/generateHtml")
 const team = []
 
 const addEmpl = () => {
@@ -34,7 +34,7 @@ const addEmpl = () => {
               promptIntern();
               break;
             case "none":
-               writeFile();
+               print();
                 break;
           }
 
@@ -76,15 +76,67 @@ function promptIntern (){
     )
 
 }
+addEmpl();
 
-function writeFile(){
-    fs.writeFile('./dist/index.html', generateHtml(team), (err) => {
+const print = () => {
+    
+    let emplData =
+    team.map( employee => {
+      if(employee.getRole() === "manager"){
+        return `
+        <h2>Name: ${employee.name}</h2>
+        <h3>${employee.getRole()}</h3>
+
+        <h3>ID: ${Employee.id}</h3>
+        <h3>Email: ${Employee.email}</h3>
+        <h3>Office: ${Employee.office}</h3>`;
+      }
+      else if(employee.getRole() === "engineer"){
+        return `
+        <h2>Name: ${employee.name}</h2>
+        <h3>${employee.getRole()}</h3>
+        <h3>ID: ${Employee.id}</h3>
+        <h3>Email: ${Employee.email}</h3>
+        <h3>GitHub: ${Employee.github}</h3>`;
+      }
+      else if(employee.getRole() === "intern"){
+        return `
+        <h2>Name: ${employee.name}</h2>
+        <h3>${employee.getRole()}</h3>
+        <h3>ID: ${Employee.id}</h3>
+        <h3>Email: ${Employee.email}</h3>
+        <h3>GitHub: ${Employee.school}</h3>`;
+      }
+    }).join("");
+
+const data =
+`<!DOCTYPE html>
+  
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <title>Document</title>
+</head>
+<body>
+
+<ul class="box-list">
+    ${emplData};
+  </ul>
+
+
+</body>
+</html>`
+
+
+    fs.writeFile('./dist/index.html', data, (err) => {
             err ? console.log(err) : console.log('Successfully created index.html!');
         
         });
 }
 
-addEmpl();
+
 
 
     
