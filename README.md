@@ -33,7 +33,7 @@ When I'm finished building my team I can exit the application, and the HTML is g
 
 image of the working page
 
-   <img scr = "./assets/website.png" />
+<img src = "./assets/website.png" />
 
 
 
